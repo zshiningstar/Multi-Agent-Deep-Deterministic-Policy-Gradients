@@ -1,0 +1,47 @@
+1. 创建python3.5虚拟环境
+```
+conda create -n maddpg python=3.5.4
+```
+2. 指定python路径
+```
+export PYTHONPATH=/home/ros/anaconda3/envs/maddpg/lib/python3.5/site-packages
+```
+3. 创建maddpg环境
+```
+python3 -m venv maddpg
+source maddpg/bin/activate
+```
+4. 查看pip
+pip list 报错:
+修改/home/ros/maddpg_wd/multiagent-particle-envs/maddpg/bin/下的pip文件
+```
+//修改前
+    from pip import main
+    if __name__ == '__main__':
+        sys.exit(main()) 
+    修改后
+    from pip import __main__  //这行也要修改
+    if __name__ == '__main__':
+        sys.exit(__main__._main())//增加__main__._
+```
+再次pip list成功
+
+5. 安装gym
+```
+pip install gym==0.10.5
+```
+6. 安装numpy
+```
+pip uninstall numpy
+pip install numpy==1.14.5
+```
+7. 安装此项目
+```
+pip install -e .
+pip install torch
+```
+
+8. 测试
+```
+python test.py
+```
