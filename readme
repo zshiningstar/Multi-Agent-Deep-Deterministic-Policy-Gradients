@@ -43,5 +43,7 @@ pip install torch
 
 8. 测试
 ```
-python test.py
+python3 test.py
 ```
+9.运行
+创建tmp/maddpg/simple_adversary
